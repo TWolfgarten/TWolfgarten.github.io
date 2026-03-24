@@ -3,74 +3,95 @@
 <head>
 <style>
   body {
-    /* Your existing background settings */
-    background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('Untitled.png');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding: 0;
+    font-family: -apple-system, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* This ensures the background stays behind the text */
+    overflow-x: hidden;
   }
 
-  .glass-container {
-    /* Positioning */
-    margin: 10% auto;
-    width: 50%;
-    padding: 40px;
+  /* The "Pop" Layer */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
     
-    /* The "Glass" Effect */
-    background: rgba(255, 255, 255, 0.4); /* White with 40% opacity */
-    backdrop-filter: blur(15px); /* This creates the shine/blur */
-    -webkit-backdrop-filter: blur(15px); /* Support for Safari */
-    
-    /* Aesthetics */
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    /* Your background image */
+    background-image: url('Untitled.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    /* THE MAGIC: Increase saturation and slight brightness for "Pop" */
+    filter: saturate(1.8) brightness(1.1); 
   }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+    backdrop-filter: blur(12px) saturate(100%); /* Blur the vibrant bg */
+    -webkit-backdrop-filter: blur(12px);
+    
+    padding: 3rem;
+    width: 50%;
+    max-width: 800px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    
+    /* Clean text contrast */
+    color: #1a1a1a;
+    line-height: 1.6;
+  }
+
+  /* Link Styling for Readability */
+  a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
 
-<div class="glass-container">
+<div class="glass-card">
   <p align="center">
-    <strong style="font-size: 1.2em;">Thomas Wolfgarten</strong> <br> <br>
+    <strong style="font-size: 1.4em; color: #000;">Thomas Wolfgarten</strong> <br><br>
     
     <script type="text/javascript">
       var user = "thomas.wolfgarten";
       var domain = "gmail.com";
       document.write('<a href="mailto:' + user + '@' + domain + '">' + user + '@' + domain + '</a>');
     </script>,
-    BlueSky: <a href="https://bsky.app/profile/thomaswolfgarten.bsky.social">@thomaswolfgarten.bsky.social</a>, X: <a href="https://x.com/TomWolfgarten">@TomWolfgarten</a>
+    BlueSky: <a href="https://bsky.app/profile/thomaswolfgarten.bsky.social">@thomaswolfgarten</a>, 
+    X: <a href="https://x.com/TomWolfgarten">@TomWolfgarten</a>
   </p>
 
   <p align="justify">
-    I am currently a PhD cand (pre-viva) at <a href="https://warwick.ac.uk/fac/sci/med/study/cpd/igpp-phd-programme/">IGPP</a>, the Institute for Global Pandemic Planning, at the <a href="https://warwick.ac.uk">University of Warwick</a>.
-    Originally an economist (<a href="https://portal.uni-koeln.de/en/uoc-home">University of Cologne</a>) and statistician (<a href="https://warwick.ac.uk">University of Warwick</a>), my research focusses on measuring and modelling human behaviour during pandemics, using large scale data sets, like mobile phone location data.
-    The project is multi-disciplinary, combining Mathematical Epidemiology (supervisor: <a href="https://warwick.ac.uk/fac/cross_fac/zeeman_institute/staffv2/keeling/">Matt Keeling</a>) and Behavioural Science (supervisor: <a href="https://www.wbs.ac.uk/about/person/neil-stewart/">Neil Stewart</a>). 
-    Besides IGPP, I am also associated with Warwick's <a href="https://warwick.ac.uk/fac/cross_fac/zeeman_institute/">SBIDER group</a> and <a href="https://www.wbs.ac.uk">WBS</a>'s <a href="https://www.wbs.ac.uk/research/subject-groups/bs/">Behavioural Science group</a>.
+    I am currently a PhD cand (pre-viva) at <strong>IGPP</strong>, the University of Warwick. My research focuses on modelling human behaviour during pandemics using large scale data sets like mobile phone location data.
   </p>
-
-  <p align="justify">
-    Once I find the time to make this page look nice, you will find publication PDFs and the underlying code here, as well as useful <a href="https://julialang.org">Julia</a> and <a href="https://aws.amazon.com">AWS cloud computing</a> tutorials.
-  </p>
-
-  <hr>
   
   <p align="justify">
-    <strong>Publications</strong><br>
-    <ul>
-      <li><a href="https://asef.org/wp-content/uploads/2023/09/Pandemic-Economy-Outcome-doc-v_Final.pdf">ASEF PHN Policy Brief: Pandemic and the Economy – A Pandemic-Resilient Society.</a> 
-      <br> A policy brief for the Helsinki conference of the Asia-Europe Public Health Network from 2023.
-      </li>
-      <br>
-      <li>
-      Currently preparing a paper "Forecasting Pandemic Trajectories Using Individual-Level Location Data" which will describe and implement the core methodology of my thesis, i.e. how to get from individual-level location data to a stochastic model of pandemic trajectories. 
-      </li>
-    </ul>
+    Besides IGPP, I am also associated with Warwick's <strong>SBIDER group</strong> and <strong>WBS</strong>.
   </p>
-</div> 
+
+  <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.1); margin: 2rem 0;">
+  
+  <strong>Publications</strong>
+  <ul>
+    <li><a href="#">ASEF PHN Policy Brief: Pandemic and the Economy</a> (2023)</li>
+    <li><em>Forthcoming:</em> "Forecasting Pandemic Trajectories Using Individual-Level Location Data"</li>
+  </ul>
+</div>
 
 </body>
 </html>
