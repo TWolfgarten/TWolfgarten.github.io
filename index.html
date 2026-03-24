@@ -3,31 +3,62 @@
 <head>
 <style>
   body {
-    /* Your existing background settings */
-    background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('Untitled.png');
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    /* Prevents horizontal scrolling caused by the blurred background */
+    overflow-x: hidden; 
+  }
+
+  /* --- THE UPGRADED BACKGROUND LAYER --- */
+  body::before {
+    content: "";
+    position: fixed;
+    /* We oversize the background slightly so the blurred edges don't show */
+    top: -30px; left: -30px; right: -30px; bottom: -30px; 
+    z-index: -1;
+    
+    background-image: url('Untitled.png');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    
+    /* THE MAGIC: Melts the pixels and supercharges the colors */
+    filter: blur(15px) saturate(200%) contrast(110%);
   }
 
+  /* --- THE CRISP GLASS CARD --- */
   .glass-container {
-    /* Positioning */
     margin: 10% auto;
     width: 50%;
+    max-width: 800px; 
     padding: 40px;
     
-    /* The "Glass" Effect */
-    background: rgba(255, 255, 255, 0.4); /* White with 40% opacity */
-    backdrop-filter: blur(15px); /* This creates the shine/blur */
-    -webkit-backdrop-filter: blur(15px); /* Support for Safari */
+    /* Slightly more opaque white so text is readable against the bright background */
+    background: rgba(255, 255, 255, 0.65); 
     
-    /* Aesthetics */
+    /* The internal glass blur */
+    backdrop-filter: blur(16px); 
+    -webkit-backdrop-filter: blur(16px); /* Crucial for Safari compatibility */
+    
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    
+    color: #1a1a1a;
+    line-height: 1.5;
+  }
+
+  /* Making the links pop against the glass */
+  a {
+    color: #4a148c; /* A deep purple to match the background */
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  a:hover {
+    text-decoration: underline;
+    color: #000;
   }
 </style>
 </head>
@@ -35,14 +66,15 @@
 
 <div class="glass-container">
   <p align="center">
-    <strong style="font-size: 1.2em;">Thomas Wolfgarten</strong> <br> <br>
+    <strong style="font-size: 1.4em;">Thomas Wolfgarten</strong> <br> <br>
     
     <script type="text/javascript">
       var user = "thomas.wolfgarten";
       var domain = "gmail.com";
       document.write('<a href="mailto:' + user + '@' + domain + '">' + user + '@' + domain + '</a>');
-    </script>,
-    BlueSky: <a href="https://bsky.app/profile/thomaswolfgarten.bsky.social">@thomaswolfgarten.bsky.social</a>, X: <a href="https://x.com/TomWolfgarten">@TomWolfgarten</a>
+    </script> |
+    BlueSky: <a href="https://bsky.app/profile/thomaswolfgarten.bsky.social">@thomaswolfgarten.bsky.social</a> | 
+    X: <a href="https://x.com/TomWolfgarten">@TomWolfgarten</a>
   </p>
 
   <p align="justify">
@@ -56,15 +88,14 @@
     Once I find the time to make this page look nice, you will find publication PDFs and the underlying code here, as well as useful <a href="https://julialang.org">Julia</a> and <a href="https://aws.amazon.com">AWS cloud computing</a> tutorials.
   </p>
 
-  <hr>
+  <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.2); margin: 30px 0;">
   
   <p align="justify">
-    <strong>Publications</strong><br>
-    <ul>
-      <li><a href="https://asef.org/wp-content/uploads/2023/09/Pandemic-Economy-Outcome-doc-v_Final.pdf">ASEF PHN Policy Brief: Pandemic and the Economy – A Pandemic-Resilient Society.</a> 
+    <strong>Publications</strong><br><br>
+    <ul style="padding-left: 20px;">
+      <li style="margin-bottom: 15px;"><a href="https://asef.org/wp-content/uploads/2023/09/Pandemic-Economy-Outcome-doc-v_Final.pdf">ASEF PHN Policy Brief: Pandemic and the Economy – A Pandemic-Resilient Society.</a> 
       <br> A policy brief for the Helsinki conference of the Asia-Europe Public Health Network from 2023.
       </li>
-      <br>
       <li>
       Currently preparing a paper "Forecasting Pandemic Trajectories Using Individual-Level Location Data" which will describe and implement the core methodology of my thesis, i.e. how to get from individual-level location data to a stochastic model of pandemic trajectories. 
       </li>
