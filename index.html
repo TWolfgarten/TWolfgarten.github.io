@@ -15,7 +15,7 @@
     top: -30px; left: -30px; right: -30px; bottom: -30px; 
     z-index: -1;
     
-    /* Your raw image, no extra coloring */
+    /* raw image, no extra coloring */
     background-image: url('Untitled.png');
     background-position: center center;
     background-repeat: no-repeat;
@@ -25,20 +25,41 @@
     filter: blur(20px); 
   }
 
+
+/* --- THE CRISP GLASS CARD --- */
   .glass-container {
     margin: 10% auto;
     width: 50%;
+    max-width: 800px; 
     padding: 40px;
     
-    /* Calmer, slightly more opaque background for readability */
-    background: rgba(255, 255, 255, 0.75); 
-    backdrop-filter: blur(15px); 
-    -webkit-backdrop-filter: blur(15px); 
+    /* Slightly more opaque white so text is readable against the bright background */
+    background: rgba(255, 255, 255, 0.65); 
+    
+    /* The internal glass blur */
+    backdrop-filter: blur(16px); 
+    -webkit-backdrop-filter: blur(16px); /* Crucial for Safari compatibility */
     
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    
+    color: #1a1a1a;
+    line-height: 1.5;
   }
+
+  /* Making the links pop against the glass */
+  a {
+    color: #4a148c; /* A deep purple to match the background */
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  a:hover {
+    text-decoration: underline;
+    color: #000;
+  }
+
 </style>
 </head>
 <body>
