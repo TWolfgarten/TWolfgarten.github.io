@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
   body {
     margin: 0;
@@ -24,7 +25,6 @@
     /* Just a blur to hide the rough pixels */
     filter: blur(20px); 
   }
-
 
 /* --- THE CRISP GLASS CARD --- */
   .glass-container {
@@ -58,6 +58,15 @@
   a:hover {
     text-decoration: underline;
     color: #000;
+  }
+
+  /* ADDED: This rule only applies to screens smaller than a tablet */
+  @media (max-width: 768px) {
+    .glass-container {
+      width: 85%;      /* Expands the box to fill most of the phone screen */
+      padding: 25px;   /* Reduces the internal padding slightly */
+      margin: 8% auto; /* Reduces the gap at the top */
+    }
   }
 
 </style>
